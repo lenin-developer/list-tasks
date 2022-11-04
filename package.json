@@ -6,16 +6,34 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "js-lint": "eslint . --ext .js,.ts,jsx,tsx",
+    "js-lint-fix": "yarn run eslint src/**/*.{js,jsx,ts,tsx} --fix",
+    "css-lint": "yarn run stylelint src/**/*.{css,scss,sass,less,stylus}",
+    "css-lint-fix": "yarn run stylelint src/**/*.{css,scss,sass,less,stylus} --fix",
+    "prepare": "husky install",
+    "commit-lint": "commitlint --edit"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.2.0",
+    "@commitlint/config-conventional": "^17.2.0",
     "@types/react": "^18.0.22",
     "@types/react-dom": "^18.0.7",
     "@vitejs/plugin-react": "^2.2.0",
+    "eslint": "^8.0.1",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.0",
+    "stylelint": "^14.14.1",
+    "stylelint-config-standard": "^29.0.0",
     "vite": "^3.2.0"
   }
 }
