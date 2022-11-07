@@ -2,6 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # se ejecutan los script que se crearon en packege.json 
-yarn run js-lint
-yarn run css-lint
-# yarn run test
+npm run js-lint
+npm run css-lint
+#npm run test
