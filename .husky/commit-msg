@@ -2,4 +2,4 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # agregar esto
-npm run commit-lint $1
+yarn run commit-lint $1
