@@ -3,3 +3,4 @@
 
 # agregar esto
 yarn run commit-lint $1
+echo el commit debe de cumplir con estas reglas: https://nitayneeman.com/posts/understanding-semantic-commit-messages-using-git-and-angular/
