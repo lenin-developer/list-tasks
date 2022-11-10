@@ -3,20 +3,20 @@ import path from 'path'
 import { defineConfig, loadEnv } from 'vite'
 
 export default ({ mode }) => {
-  return defineConfig({
-    plugins: [react()],
-    resolve: {
-      alias: {
-        '@': path.resolve(__dirname, './src')
-      }
-    },
-    define: { 'process.env': { ...loadEnv(mode, process.cwd()) } },
-    server: {
-      proxy: {
-        '^/assets': {
-          target: 'http://localhost:3000/'
-        }
-      }
-    }
-  })
+	return defineConfig({
+		plugins: [react()],
+		resolve: {
+			alias: {
+				'@': path.resolve(__dirname, './src'),
+			},
+		},
+		define: { 'process.env': { ...loadEnv(mode, process.cwd()) } },
+		server: {
+			proxy: {
+				'^/assets': {
+					target: 'http://localhost:3000/',
+				},
+			},
+		},
+	})
 }
