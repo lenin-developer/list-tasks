@@ -1,4 +1,5 @@
 {
+	"extends": ["stylelint-config-standard", "stylelint-config-prettier"],
 	"rules": {
 		"selector-class-pattern": [
 			"^([a-z])(([A-Z]*)[a-z0-9]+)*((__[a-z])(([A-Z]*)[a-z])+){0,2}$",
@@ -6,6 +7,5 @@
 				"message": "Expected class selector to be camelCase + snake__case (double underscore), example:  myBlock__myElement__myModifier"
 			}
 		]
-	},
-	"extends": ["stylelint-config-standard", "stylelint-config-prettier"]
+	}
 }
