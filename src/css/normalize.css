@@ -12,10 +12,6 @@
 	box-sizing: border-box;
 }
 
-image {
-	box-sizing: content-box;
-}
-
 html {
 	line-height: 1.15; /* 1 */
 	text-size-adjust: 100%; /* 2 */

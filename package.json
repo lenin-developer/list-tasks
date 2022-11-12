@@ -11,17 +11,19 @@
 		"js-lint-fix": "eslint src/**/*.{js,jsx,ts,tsx} --fix",
 		"css-lint": "stylelint src/**/*.{css,scss,sass,less,stylus}",
 		"css-lint-fix": "stylelint src/**/*.{css,scss,sass,less,stylus} --fix",
+		"check-format": "prettier --check src/**/*.{js,jsx,css,md}",
 		"format": "prettier --write .",
 		"stylelint-check": "stylelint-config-prettier-check",
-		"clean-code": "yarn run format && yarn run js-lint-fix && yarn run css-lint-fix",
-		"check-code": "prettier --check . && yarn run js-lint && yarn run css-lint",
+		"clean-code": "yarn run js-lint-fix && yarn run css-lint-fix && yarn run format",
+		"check-code": "yarn run js-lint && yarn run css-lint && prettier --check .",
 		"commit-lint": "commitlint --edit",
 		"test": "jest --watchAll",
 		"prepare": "husky install"
 	},
 	"dependencies": {
 		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
+		"react-dom": "^18.2.0",
+		"react-icons": "^4.6.0"
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.19.4",
@@ -53,8 +55,8 @@
 		"vite": "^3.2.0"
 	},
 	"lint-staged": {
-		"*.{js,jsx,css,md}": "yarn run prettier --write",
 		"src/**/*.{js,jsx,ts,tsx}": "yarn run js-lint",
-		"src/**/*.{css,scss,sass,less,stylus}": "yarn run css-lint"
+		"src/**/*.{css,scss,sass,less,stylus}": "yarn run css-lint",
+		"*.{js,jsx,css,md}": "yarn run prettier --write"
 	}
 }

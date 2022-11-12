@@ -1,6 +1,5 @@
 @import url('./css/normalize.css');
 @import url('./css/variables.css');
-@import url('./css/base.css');
 
 :root {
 	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
