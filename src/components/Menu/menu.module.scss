@@ -1,0 +1,80 @@
+@use './../../styles' as *;
+
+// sdfdf
+.navigation {
+	width: 5rem;
+	padding-top: 1.875rem;
+	position: fixed;
+	inset: 1.25rem;
+	border-left: 0.625rem solid $blue-primary;
+	border-radius: 3.125rem;
+	overflow: hidden;
+	background-color: $blue-primary;
+	box-shadow: 0.9375rem 0.9375rem 1.5625rem rgb(0 0 0 / 5%);
+	transition: 0.5s;
+	overflow-y: auto;
+}
+
+.navigation::-webkit-scrollbar {
+	width: 0.25rem;
+}
+
+.navigation::-webkit-scrollbar-thumb {
+	background-color: rgb(240 248 255 / 42.5%);
+}
+
+.active.navigation {
+	width: 18.75rem;
+	border-radius: 1.25rem;
+}
+
+.toggle {
+	position: absolute;
+	bottom: 0.9375rem;
+	right: 0.9375rem;
+	width: 3.125rem;
+	height: 3.125rem;
+	background: $white-color;
+	border-radius: 50%;
+	box-shadow: 0.3125rem 0.3125rem 0.625rem rgb(0 0 0 / 15%);
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.toggle::before {
+	content: '';
+	position: absolute;
+	width: 1.625rem;
+	height: 0.1875rem;
+	border-radius: 0.1875rem;
+	background-color: $blue-primary;
+	transform: translateY(0.3125rem);
+	transform: 1s;
+}
+
+.toggle::after {
+	content: '';
+	width: 1.625rem;
+	height: 0.1875rem;
+	border-radius: 0.1875rem;
+	background-color: $blue-primary;
+	transform: translateY(-0.3125rem);
+	transform: 1s;
+}
+
+.active .toggle::before {
+	transform: translateY(0) rotate(-405deg);
+}
+
+.active .toggle::after {
+	transform: translateY(0) rotate(225deg);
+}
+
+@include table {
+	.navigation {
+		left: -20.5em;
+	}
+}
