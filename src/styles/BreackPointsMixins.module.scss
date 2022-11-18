@@ -1,0 +1,12 @@
+/* stylelint-disable meowtec/no-px */
+$small: 576px; // movileSmall
+$medium: 768px; // movilbig
+$large: 992px; // table
+$extra-arge: 1200px; // desktop
+$extra-extra-large: 1400px; // display
+
+@mixin table {
+	@media only screen and (max-width: $large) {
+		@content;
+	}
+}
