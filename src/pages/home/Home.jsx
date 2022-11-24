@@ -1,20 +1,20 @@
-import styles from './home.module.scss'
-import { Outlet } from 'react-router-dom'
 import { Menu } from '@/components'
-import { useRef } from 'react'
 import { toggleCss } from '@/utils'
-// import {  } from 'prop-types'
+import { useRef } from 'react'
+import { Outlet } from 'react-router-dom'
+import styles from './home.module.scss'
+
 export const Home = () => {
 	const layout = useRef(null)
 
-	const resizeStyles = () => {
+	const resizeLayout = () => {
 		toggleCss(layout, styles.active)
 	}
 
 	return (
-		<div className={styles.home}>
-			<div ref={layout} className={styles.home__spaceMenu}>
-				<Menu resizeStyles={resizeStyles} />
+		<div ref={layout} className={styles.home}>
+			<div className={styles.home__spaceMenu}>
+				<Menu resizeLayout={resizeLayout} />
 			</div>
 			<Outlet />
 		</div>

@@ -10,17 +10,23 @@
 }
 
 .home__spaceMenu {
+	grid-area: spaceMenu;
 	width: 6.25rem;
 	transition: 0.5s;
 }
 
-.active.home__spaceMenu {
+.active .home__spaceMenu {
+	grid-area: spaceMenu;
 	width: 20rem;
+}
+
+.home__container {
+	grid-area: container;
 }
 
 @include table {
 	.home {
-		grid-template-columns: 0 1fr;
+		grid-template-columns: 1fr;
 		gap: 0;
 		padding: 0 0.625rem;
 	}
