@@ -1,11 +1,16 @@
 {
-	"extends": ["stylelint-config-standard", "stylelint-config-prettier"],
+	"plugins": ["stylelint-no-px"],
+	"extends": ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
 	"rules": {
 		"selector-class-pattern": [
 			"^([a-z])(([A-Z]*)[a-z0-9]+)*((__[a-z])(([A-Z]*)[a-z])+){0,2}$",
 			{
 				"message": "Expected class selector to be camelCase + snake__case (double underscore), example:  myBlock__myElement__myModifier"
 			}
-		]
+		],
+		"declaration-block-no-redundant-longhand-properties": null,
+		"at-rule-no-unknown": null,
+		"scss/at-rule-no-unknown": true,
+		"meowtec/no-px": [true, { "ignore": ["1px", "font"] }]
 	}
 }

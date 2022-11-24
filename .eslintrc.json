@@ -9,6 +9,7 @@
 		"standard",
 		"plugin:react/jsx-runtime", // para no hacer import React from 'react';
 		"plugin:react-hooks/recommended", //para react-hook
+		"plugin:jest-dom/recommended", // reglas para los test
 		"prettier"
 	],
 	"overrides": [],
@@ -16,7 +17,7 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["react"],
+	"plugins": ["react", "jest-dom"],
 	"rules": {
 		"no-console": "error",
 		"max-len": "off"

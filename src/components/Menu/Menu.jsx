@@ -1,4 +1,4 @@
-import { toggleCss } from '@/utils'
+import { toggleAtrrValue, toggleCss } from '@/utils'
 import { func } from 'prop-types'
 import { useRef } from 'react'
 import { AiFillHome } from 'react-icons/ai'
@@ -7,16 +7,17 @@ import { GrAddCircle } from 'react-icons/gr'
 import { Item } from './Item/Item'
 import styles from './menu.module.scss'
 
-const Menu = ({ resizeStyles }) => {
+const Menu = ({ resizeLayout }) => {
 	const nav = useRef(null)
 
 	const resizeMenu = () => {
 		toggleCss(nav, styles.active)
-		resizeStyles()
+		toggleAtrrValue(nav, 'ariaExpanded', 'false', 'true')
+		resizeLayout()
 	}
 
 	return (
-		<nav ref={nav} className={styles.navigation}>
+		<nav ref={nav} className={styles.navigation} aria-expanded='false'>
 			<ul>
 				<Item title='Home' to='#' key={1}>
 					<AiFillHome />
@@ -28,16 +29,16 @@ const Menu = ({ resizeStyles }) => {
 					<BsListTask />
 				</Item>
 			</ul>
-			<div className={styles.toggle} onClick={resizeMenu}></div>
+			<div className={styles.toggle} onClick={resizeMenu} data-testid='btn'></div>
 		</nav>
 	)
 }
 
 Menu.propTypes = {
-	resizeStyles: func,
+	resizeLayout: func,
 }
 Menu.defaultprops = {
-	resizeStyles: () => {},
+	resizeLayout: () => {},
 }
 
 export default Menu
