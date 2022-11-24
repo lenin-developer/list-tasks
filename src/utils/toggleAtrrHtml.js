@@ -1,12 +1,15 @@
 /**
  * This function takes in a ref and a className and toggles the className on the ref.
- * @param {node} ref - the ref of the element you want to toggle the class on
+ * @param {node} refElement - the ref of the element you want to toggle the class on
  * @param {string} className - the class you want to toggle
  */
-export const toggleCss = (ref, className) => {
+export const toggleCss = (refElement, className) => {
 	try {
-		ref.current.classList.toggle(`${className}`)
-	} catch (error) {}
+		refElement.current.classList.toggle(`${className}`)
+	} catch (error) {
+		// eslint-disable-next-line no-console
+		console.error('erro in the function toggleCss', error)
+	}
 }
 
 /**

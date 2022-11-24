@@ -62,8 +62,8 @@
 		"vite": "^3.2.0"
 	},
 	"lint-staged": {
-		"src/**/*.{js,jsx,ts,tsx}": "yarn run js-lint",
-		"src/**/*.{css,scss,sass,less,stylus}": "yarn run css-lint",
+		"src/**/*.{js,jsx}": "yarn run js-lint",
+		"src/**/*.{css,scss}": "yarn run css-lint",
 		"*.{js,jsx,css,md}": "yarn run prettier --write"
 	}
 }
