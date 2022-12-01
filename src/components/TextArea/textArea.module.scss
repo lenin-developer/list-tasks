@@ -1,0 +1,19 @@
+@use '@/styles' as *;
+
+.textArea {
+	display: inline;
+	border: 0.0625rem solid $border-blue-primary;
+	border-radius: 0.375rem;
+	padding: 0.75rem;
+	outline: none;
+	resize: none;
+
+	&:hover {
+		box-shadow: 0 0 0.3125rem $show-blue-primary;
+	}
+
+	&:focus,
+	&:active {
+		outline: $border-blue-primary solid 0.0625rem;
+	}
+}

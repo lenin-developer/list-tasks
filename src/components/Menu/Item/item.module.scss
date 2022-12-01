@@ -55,7 +55,8 @@
 	background-color: $white-color;
 } */
 
-.active.item {
+.active.item,
+.item:focus-within {
 	background-color: $white-color;
 }
 
@@ -63,11 +64,14 @@
 	color: $blue-primary;
 } */
 
-.active.item a {
+.active.item a,
+.item:focus-within a {
 	color: $blue-primary;
+	outline: none;
 }
 
-.active.item path {
+.active.item path,
+.item:focus-within path {
 	color: $blue-primary;
 	stroke: $blue-primary;
 }
@@ -85,7 +89,8 @@
 	box-shadow: 7.5px 7.5px 0 3px $white-color;
 } */
 
-.active.item::before {
+.active.item::before,
+.item:focus-within::before {
 	content: '';
 	width: 1.25rem;
 	height: 1.25rem;

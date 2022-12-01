@@ -26,9 +26,13 @@
 
 @include table {
 	.home {
-		grid-template-columns: 1fr;
+		grid-template-areas: 'container container';
 		gap: 0;
 		padding: 0 0.625rem;
+	}
+
+	.home__spaceMenu {
+		display: none;
 	}
 
 	// .home__spaceMenu {

@@ -1,0 +1,31 @@
+@use '@/styles' as *;
+
+.wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1rem;
+}
+
+.input {
+	height: 2.5rem;
+	display: inline;
+	outline: none;
+	border: 0.0625rem solid $border-blue-primary;
+	border-radius: 0.375rem;
+	padding: 0 1rem;
+
+	&:hover {
+		box-shadow: 0 0 0.3125rem $show-blue-primary;
+	}
+
+	&:focus,
+	&:active {
+		outline: $border-blue-primary solid 0.0625rem;
+	}
+}
+
+.label {
+	display: inline-block;
+	margin-bottom: 0.5rem;
+}

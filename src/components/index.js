@@ -1,1 +1,5 @@
+export * from './Button/Button'
+export * from './InputText/InputText'
+export * from './Menu/Item/Item'
 export { default as Menu } from './Menu/Menu'
+export * from './TextArea/TextArea'

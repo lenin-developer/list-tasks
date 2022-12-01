@@ -1,4 +1,4 @@
-export * from './addTask/AddTask'
+export * from './AddTaskPage/AddTaskPage'
 export * from './home/Home'
 export * from './login/Login'
 export * from './root/Root'
