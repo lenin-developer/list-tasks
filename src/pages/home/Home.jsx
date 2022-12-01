@@ -16,7 +16,9 @@ export const Home = () => {
 			<div className={styles.home__spaceMenu}>
 				<Menu resizeLayout={resizeLayout} />
 			</div>
-			<Outlet />
+			<div className={styles.home__container}>
+				<Outlet />
+			</div>
 		</div>
 	)
 }
