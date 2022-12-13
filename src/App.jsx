@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Login, Home, Root, AddTask, TasksPage } from '@/pages'
+import { Login, Home, Root, AddTaskPage, TasksPage } from '@/pages'
 
 function App() {
 	return (
@@ -8,7 +8,7 @@ function App() {
 			<Route path='/login' element={<Login />} />
 
 			<Route path='/app' element={<Home />}>
-				<Route path='addTask' element={<AddTask />} />
+				<Route path='addTask' element={<AddTaskPage />} />
 				<Route path='listTasks' element={<TasksPage />}>
 					{/* <Route path='show' element={} /> este seria un modal */}
 				</Route>

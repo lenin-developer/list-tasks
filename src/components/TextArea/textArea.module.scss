@@ -1,7 +1,7 @@
 @use '@/styles' as *;
 
 .textArea {
-	display: inline;
+	width: 100%;
 	border: 0.0625rem solid $border-blue-primary;
 	border-radius: 0.375rem;
 	padding: 0.75rem;

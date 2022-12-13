@@ -1,17 +1,36 @@
-import { InputText, TextArea, Button } from '@/components'
+import { Button, InputText, TextArea } from '@/components'
+import { AddTaskInitValue, AddTaskSchema } from '@/schemas'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
 import styles from './formAddTask.module.scss'
 
 export const FormAddTask = () => {
-	const addTaskEvent = (e) => {
-		e.preventDefault()
-		alert('achis')
+	const {
+		register,
+		handleSubmit,
+		formState: { errors, isValid },
+		reset,
+	} = useForm({
+		defaultValues: AddTaskInitValue,
+		resolver: yupResolver(AddTaskSchema),
+		mode: 'onChange', // para que se haga la validacion al hacer onchange
+	})
+
+	const addTaskEvent = (data) => {
+		// const body = { ...data, checked: false }
+		reset()
 	}
 
 	return (
-		<form className={styles.form}>
-			<InputText label='Title Task' />
-			<TextArea />
-			<Button label='Agregar' type='submit' size='lg' onClick={(e) => addTaskEvent(e)} />
+		<form onSubmit={handleSubmit(addTaskEvent)} className={styles.form}>
+			<InputText label='Title' id='titleTask' {...register('title')} error={errors.title} />
+			<TextArea
+				placeholder='descripcion de la tarea'
+				aria-label='descripcion de la tarea'
+				{...register('description')}
+				error={errors.descripction}
+			/>
+			<Button label='Agregar' type='submit' size='lg' disabled={!isValid} />
 		</form>
 	)
 }

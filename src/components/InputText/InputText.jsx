@@ -1,19 +1,29 @@
+/* eslint-disable react/display-name */
+import { forwardRef } from 'react'
 import styles from './inputText.module.scss'
-import { string } from 'prop-types'
-export const InputText = ({ label, name, ...res }) => {
-	return label ? (
+import { string, object } from 'prop-types'
+import { ErrorMessage, Label } from '@/components'
+
+export const InputText = forwardRef(({ label, id, error, ...res }, ref) => {
+	return (
 		<div className={styles.wrapper}>
-			<label htmlFor={name} className={styles.label}>
-				{label}
-			</label>
-			<input type='text' className={styles.input} name={name} autoComplete='off' {...res} />
+			{label && <Label htmlFor={id} label={label} />}
+			<input
+				id={id}
+				type='text'
+				autoComplete='off'
+				aria-invalid={error?.message ? 'true' : 'false'}
+				className={styles.input}
+				{...res}
+				ref={ref}
+			/>
+			{error?.message && <ErrorMessage text={error?.message} />}
 		</div>
-	) : (
-		<input type='text' className={styles.input} name={name} autoComplete='off' {...res} />
 	)
-}
+})
 
 InputText.propTypes = {
 	label: string,
-	name: string,
+	id: string,
+	error: object,
 }
