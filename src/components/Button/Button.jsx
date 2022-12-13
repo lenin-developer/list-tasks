@@ -9,7 +9,7 @@ export const Button = ({ label, size, ...res }) => {
 	})
 
 	return (
-		<button className={`${styles.button} ${btnSize} ${classDisabled}`} type='button' {...res}>
+		<button type='button' className={`${styles.button} ${btnSize} ${classDisabled}`} {...res}>
 			{label}
 		</button>
 	)

@@ -1,7 +1,7 @@
 import styles from './AddTaskPage.module.scss'
 import { FormAddTask } from './components'
 
-export const AddTask = () => {
+export const AddTaskPage = () => {
 	return (
 		<main className={styles.addTaskPage}>
 			<FormAddTask />

@@ -1,4 +1,5 @@
 import styles from './tasks.module.scss'
+
 export const TasksPage = () => {
 	return (
 		<div className={styles.tasks}>
