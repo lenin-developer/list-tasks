@@ -19,7 +19,7 @@
 		"check-code": "yarn run js-lint && yarn run css-lint && prettier --check .",
 		"commit-lint": "commitlint --edit",
 		"prepare": "husky install",
-		"server": "json-server --watch ./src/server/db.json --port 3004"
+		"server": "json-server --watch ./src/backend/db.json --port 3004"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^2.9.10",
