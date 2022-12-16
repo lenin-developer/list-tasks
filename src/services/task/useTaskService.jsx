@@ -1,7 +1,8 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getTask, postTask } from './task.query.js'
+import { getTask, postTask } from './task.querys.js'
+import { localStorage } from '@/constants/localStorageKeys'
 
-const key = 'task'
+const key = localStorage.key.task
 
 export const useGetTasks = () => {
 	return useQuery({

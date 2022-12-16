@@ -1,16 +1,17 @@
 import { getInLocalStorage, saveInLocalStorage } from '@/utils/localStorage'
 import axios from 'axios'
-
+import { dominioWeb } from '@/constants/endpoints'
+import { localStorage } from '@/constants/localStorageKeys'
 // aqui solo guardamos un token en la cahe solo para poder simular
-saveInLocalStorage('token', '123456')
+saveInLocalStorage(localStorage.key.token, '123456')
 
-export const query = axios.create({
-	baseURL: 'http://localhost:3004',
+export const DominioQuery = axios.create({
+	baseURL: dominioWeb.root,
 	responseType: 'json',
 })
 
 const updateHeader = (request) => {
-	const token = getInLocalStorage('token')
+	const token = getInLocalStorage(localStorage.key.token)
 	const newHeaders = {
 		'Content-Type': 'application/json',
 		...request.headers,
@@ -20,16 +21,16 @@ const updateHeader = (request) => {
 	return request
 }
 
-query.interceptors.request.use((request) => {
+DominioQuery.interceptors.request.use((request) => {
 	if (request.url?.includes('assets')) return request
 	return updateHeader(request)
 })
 
-query.interceptors.response.use(
+DominioQuery.interceptors.response.use(
 	(response) => {
 		// -todo ok
 		// console.log('response', response)
-		alert('response', response)
+		// alert('response', response)
 		return response
 	},
 	(error) => {
