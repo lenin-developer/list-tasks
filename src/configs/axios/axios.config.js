@@ -1,7 +1,9 @@
-import { getInLocalStorage, saveInLocalStorage } from '@/utils/localStorage'
 import axios from 'axios'
+import { toast } from 'react-toastify'
+import { getInLocalStorage, saveInLocalStorage } from '@/utils/localStorage'
 import { dominioWeb } from '@/constants/endpoints'
 import { localStorage } from '@/constants/localStorageKeys'
+import { codeMatcherError } from '@/utils/errorHandling'
 // aqui solo guardamos un token en la cahe solo para poder simular
 saveInLocalStorage(localStorage.key.token, '123456')
 
@@ -28,14 +30,10 @@ DominioQuery.interceptors.request.use((request) => {
 
 DominioQuery.interceptors.response.use(
 	(response) => {
-		// -todo ok
-		// console.log('response', response)
-		// alert('response', response)
 		return response
 	},
 	(error) => {
-		// aqui manejar los errores
-		// console.log('error', error)
-		alert('error', error)
+		toast.error(codeMatcherError(error?.code))
+		return new Promise((resolve, reject) => reject(error))
 	}
 )

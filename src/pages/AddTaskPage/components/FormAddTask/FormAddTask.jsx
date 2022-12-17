@@ -17,7 +17,7 @@ export const FormAddTask = () => {
 		mode: 'onChange', // para que se haga la validacion al hacer onchange
 	})
 
-	const { mutate } = usePostTask()
+	const { mutate, isLoading } = usePostTask()
 
 	const addTaskEvent = (data) => {
 		const body = { ...data, checked: false }
@@ -37,7 +37,7 @@ export const FormAddTask = () => {
 				{...register('description')}
 				error={errors.descripction}
 			/>
-			<Button label='Agregar' type='submit' size='lg' disabled={!isValid} />
+			<Button label='Agregar' type='submit' size='lg' disabled={!isValid || isLoading} />
 		</form>
 	)
 }
