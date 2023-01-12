@@ -1,30 +1,75 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getTask, postTask } from './task.querys.js'
+import { toasTifyConfig } from '@/configs/ui/toasTify.config.js'
 import { localStorage } from '@/constants/localStorageKeys'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useEffect } from 'react'
+import { toast } from 'react-toastify'
+import { v4 as uuidv4 } from 'uuid'
+import { postMsg, settignMsgGET } from './task.notify.js'
+import { getTask, postTask } from './task.requests.js'
 
 const key = localStorage.key.task
+const id = uuidv4()
 
-export const useGetTasks = () => {
-	return useQuery({
+export const useGetTasks = (autoCall = true, settingMsg = {}, settignQuery = {}) => {
+	const toastId = id
+	const toastIdSuccess = `${toastId}-Success`
+	const toastIdError = `${toastId}-error`
+	const controller = new AbortController()
+	const { loadign, success, error } = settignMsgGET(settingMsg)
+
+	const queryprops = useQuery({
 		queryKey: [key],
-		queryFn: getTask,
+		queryFn: () => {
+			loadign?.active && toast.loading(loadign?.msg, { ...toasTifyConfig, toastId })
+			return getTask(controller)
+		},
+		enabled: autoCall,
+
+		onSuccess: () => {
+			loadign?.active && toast.dismiss(toastId)
+			success?.active && toast.success(success.msg, { toastId: toastIdSuccess })
+		},
+		onError: () => {
+			loadign?.active && toast.dismiss(toastId)
+			error?.active && toast.error(error.msg, { toastId: toastIdError })
+		},
+		...settignQuery,
 	})
+
+	const abort = () => {
+		controller.abort()
+	}
+
+	useEffect(() => {
+		return () => {
+			toast.dismiss(toastId)
+			// toast.dismiss(toastIdSuccess)
+			toast.dismiss(toastIdError)
+		}
+	}, [])
+
+	return { ...queryprops, abort, key }
 }
 
 export const useGetTaskId = (id) => {
 	return useQuery({
-		queryKey: [key, { id }],
+		queryKey: [key, id],
 		queryFn: getTask,
 	})
 }
 
-export const usePostTask = () => {
+export const usePostTask = (settingMsg = postMsg, settingMutation = {}) => {
 	const queryClient = useQueryClient()
 
-	return useMutation({
-		mutationFn: postTask,
+	const mutation = useMutation({
+		mutationFn: (body) => {
+			postTask(body, settingMsg)
+		},
 		onSuccess: (task) => {
 			queryClient.setQueryData([key], (prevTasks) => prevTasks?.concat(task))
 		},
+		...settingMutation,
 	})
+
+	return { ...mutation, key }
 }

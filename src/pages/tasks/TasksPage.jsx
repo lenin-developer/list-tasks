@@ -1,9 +1,10 @@
 import styles from './tasks.module.scss'
 import { useGetTasks } from '@/services/task'
 
-export const TasksPage = () => {
+const TasksPage = () => {
 	const { data: tasks } = useGetTasks()
 
+	// console.log(tasks)
 	return (
 		<div className={styles.tasks}>
 			{tasks?.map((task) => (
@@ -14,3 +15,5 @@ export const TasksPage = () => {
 		</div>
 	)
 }
+
+export default TasksPage

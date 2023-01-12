@@ -5,6 +5,7 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ToastContainer } from 'react-toastify'
 import App from './App'
+import { toasTifyConfig } from '@/configs/ui'
 
 import 'react-toastify/dist/ReactToastify.min.css'
 import './styles/normalize.css'
@@ -17,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 			<BrowserRouter>
 				<App />
 				<ReactQueryDevtools initialIsOpen={false} />
-				<ToastContainer />
+				<ToastContainer {...toasTifyConfig} />
 			</BrowserRouter>
 		</QueryClientProvider>
 	</React.StrictMode>

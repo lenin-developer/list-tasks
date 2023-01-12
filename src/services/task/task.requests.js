@@ -3,20 +3,21 @@ import { dominioWeb } from '@/constants/endpoints'
 import { toast } from 'react-toastify'
 import { taksAdapter } from './task.adapter.js'
 
-export const getTask = async (id) => {
+export const getTask = async (controller, id) => {
 	const root = dominioWeb.Path.task
 	const pathId = `${root}/${id}`
-	const path = id ? root : pathId
+	const path = id ? pathId : root
 
-	const { data } = await DominioQuery.get(path)
+	const { data } = await DominioQuery.get(path, {
+		signal: controller.signal,
+	})
+
 	return taksAdapter(data)
 }
 
-export const postTask = async (task) => {
+export const postTask = async (task, config) => {
 	const { data } = await toast.promise(DominioQuery.post(dominioWeb.Path.task, task), {
-		pending: 'guardando',
-		success: 'guardado 👌',
-		error: 'Erro al guardar 🤯',
+		...config,
 	})
 
 	return taksAdapter([data])

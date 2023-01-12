@@ -33,7 +33,9 @@ DominioQuery.interceptors.response.use(
 		return response
 	},
 	(error) => {
-		toast.error(codeMatcherError(error?.code))
+		toast.error(codeMatcherError(error?.code), {
+			toastId: 'axios',
+		})
 		return new Promise((resolve, reject) => reject(error))
 	}
 )
