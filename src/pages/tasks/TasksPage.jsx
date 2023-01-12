@@ -1,11 +1,19 @@
 import styles from './tasks.module.scss'
+import { useGetTasks } from '@/services/task'
 
-export const TasksPage = () => {
+const TasksPage = () => {
+	const { data: tasks } = useGetTasks()
+
+	// console.log(tasks)
 	return (
 		<div className={styles.tasks}>
-			<p>page tasks list</p>
-			<h2>d</h2>
-			<h3>x</h3>
+			{tasks?.map((task) => (
+				<div key={task?.id}>
+					<p>{task?.title}</p>
+				</div>
+			))}
 		</div>
 	)
 }
+
+export default TasksPage

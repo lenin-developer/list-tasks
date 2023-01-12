@@ -3,6 +3,7 @@ import { AddTaskInitValue, AddTaskSchema } from '@/schemas'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import styles from './formAddTask.module.scss'
+import { usePostTask } from '@/services/task'
 
 export const FormAddTask = () => {
 	const {
@@ -16,9 +17,15 @@ export const FormAddTask = () => {
 		mode: 'onChange', // para que se haga la validacion al hacer onchange
 	})
 
+	const { mutate, isLoading } = usePostTask()
+
 	const addTaskEvent = (data) => {
-		// const body = { ...data, checked: false }
-		reset()
+		const body = { ...data, checked: false }
+		mutate(body, {
+			onSuccess: () => {
+				reset()
+			},
+		})
 	}
 
 	return (
@@ -30,7 +37,7 @@ export const FormAddTask = () => {
 				{...register('description')}
 				error={errors.descripction}
 			/>
-			<Button label='Agregar' type='submit' size='lg' disabled={!isValid} />
+			<Button label='Agregar' type='submit' size='lg' disabled={!isValid || isLoading} />
 		</form>
 	)
 }

@@ -1,9 +1,18 @@
 import { FormAddTask } from '@/pages/AddTaskPage/components'
 import { act, fireEvent, render, screen } from '@testing-library/react'
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 
+const queryClient = new QueryClient()
 describe('FormAddTask: page,type: integration', () => {
+	beforeEach(() => {
+		render(
+			<QueryClientProvider client={queryClient}>
+				<FormAddTask />
+			</QueryClientProvider>
+		)
+	})
+
 	it('deberia tener por defecto el boton bloqueado', () => {
-		render(<FormAddTask />)
 		const btn = screen.getByRole('button')
 		const disabledValue = btn.getAttribute('disabled')
 
@@ -11,8 +20,6 @@ describe('FormAddTask: page,type: integration', () => {
 	})
 
 	it('deberia de estar el boton bloqueado "disabled" (1)', async () => {
-		render(<FormAddTask />)
-
 		const elements = screen.getAllByRole('textbox')
 		const btn = screen.getByRole('button')
 		const [input] = elements
@@ -24,8 +31,6 @@ describe('FormAddTask: page,type: integration', () => {
 	})
 
 	it('deberia de estar el boton bloqueado "disabled" (2)', async () => {
-		render(<FormAddTask />)
-
 		const elements = screen.getAllByRole('textbox')
 		const btn = screen.getByRole('button')
 		const [textArea] = elements
@@ -37,8 +42,6 @@ describe('FormAddTask: page,type: integration', () => {
 	})
 
 	it('deberia de estar el boton activo', async () => {
-		render(<FormAddTask />)
-
 		const elements = screen.getAllByRole('textbox')
 		const [inputt, textArea] = elements
 

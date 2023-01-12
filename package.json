@@ -19,7 +19,7 @@
 		"check-code": "yarn run js-lint && yarn run css-lint && prettier --check .",
 		"commit-lint": "commitlint --edit",
 		"prepare": "husky install",
-		"server": "json-server --watch ./src/server/db.json --port 3004"
+		"server": "json-server --watch ./src/_backend/db.json --port 3004"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^2.9.10",
@@ -32,7 +32,11 @@
 		"react-dom": "^18.2.0",
 		"react-hook-form": "^7.40.0",
 		"react-icons": "^4.6.0",
+		"react-loading-skeleton": "^3.1.0",
 		"react-router-dom": "^6.4.3",
+		"react-spinners": "^0.13.7",
+		"react-toastify": "^9.1.1",
+		"uuid": "^9.0.0",
 		"yup": "^0.32.11"
 	},
 	"devDependencies": {
