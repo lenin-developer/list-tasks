@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import { Login, Home, Root } from '@/pages'
 import { path } from '@/constants/routers'
 import { useOnLine } from '@/hooks'
+import { LoadingPage } from '@/components'
 const AddTaskPage = lazy(() => import('@/pages/AddTaskPage/AddTaskPage'))
 const TasksPage = lazy(() => import('@/pages/tasks/TasksPage'))
 
@@ -19,7 +20,7 @@ function App() {
 					<Route
 						path={path.addTask}
 						element={
-							<Suspense fallback={<p>mmm</p>}>
+							<Suspense fallback={<LoadingPage />}>
 								<AddTaskPage />
 							</Suspense>
 						}
@@ -27,7 +28,7 @@ function App() {
 					<Route
 						path={path.listTasks}
 						element={
-							<Suspense fallback={<p>skeletor...</p>}>
+							<Suspense fallback={<LoadingPage />}>
 								<TasksPage />
 							</Suspense>
 						}
