@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 export const codeMatcherError = (errorCode) => {
 	const codeMatcher = {
 		ERR_NETWORK: 'Error de conexion al servidor',
@@ -12,4 +13,14 @@ export const codeMatcherError = (errorCode) => {
 	const messaje = codeMatcher[errorCode] ?? 'Erro'
 
 	return messaje
+}
+
+export const setLog = (error = '') => {
+	console.log('mensaje de error', error)
+	console.log('perfil de usuario', 1)
+	console.warn()
+}
+
+export function Bomb() {
+	throw new Error('💥 CABOOM 💥')
 }

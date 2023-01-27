@@ -1,4 +1,5 @@
 export * from './Button/Button'
+export { default as CardTask } from './CardTask/CardTask'
 export * from './ErrorMessage/ErrorMessage'
 export * from './InputText/InputText'
 export * from './Label/Label'
