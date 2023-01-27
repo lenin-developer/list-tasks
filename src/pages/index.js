@@ -1,3 +1,7 @@
+export { default as AddTaskPage } from './AddTaskPage/AddTaskPage'
+export * from './AddTaskPage/components/FormAddTask/FormAddTask'
+export { default as ErrorCatch } from './ErrorCatch/ErrorCatch'
+export { default as ErrorFallback } from './ErrorFallback/ErrorFallback'
 export * from './home/Home'
 export * from './login/Login'
 export * from './root/Root'

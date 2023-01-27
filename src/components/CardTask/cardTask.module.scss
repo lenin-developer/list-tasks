@@ -1,0 +1,51 @@
+@use '@/styles' as *;
+
+.cardTask {
+	margin-bottom: 1.25rem;
+	max-width: 43.75rem;
+	border: 1px solid $btn-backgrund-gray-disabled;
+	border-radius: 0.3125rem;
+}
+
+.cardTask_green {
+	border: 1px solid $btn-backgrund-gray-disabled;
+}
+
+.cardTask__title {
+	display: flex;
+	align-items: center;
+	height: 2.5rem;
+	background-color: $btn-backgrund-gray-disabled;
+
+	// border: 0.125rem solid $btn-backgrund-gray-disabled;
+	border-radius: 0.125rem;
+
+	& h3 {
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		color: $btn-color-gray-disabled;
+		padding-left: 0.3125rem;
+	}
+}
+
+.description {
+	padding: 0.5rem 0.3125rem 0.75rem;
+	color: $btn-backgrund-gray-disabled;
+
+	& p {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+}
+
+.sectionBtns {
+	width: 100%;
+
+	// display: flex;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-content: space-evenly;
+}
