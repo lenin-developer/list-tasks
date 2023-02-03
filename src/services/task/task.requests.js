@@ -22,3 +22,10 @@ export const postTask = async (task, config) => {
 
 	return taksAdapter([data])
 }
+
+export const patchCheckedTaskId = async (id, body, config) => {
+	const { data } = await toast.promise(DominioQuery.patch(`${dominioWeb.Path.task}/${id}`, body), {
+		...config,
+	})
+	return taksAdapter([data])
+}
