@@ -3,48 +3,14 @@
     {
       "title": "mi titulo dfsdsd dsdsdsd sdsd ds sdsdsdsdhjsdhhsdhjs jdjhdjdjjd isuisiuis usususuus usususu usususu isisisi dsdsd sdsds sdsdsd sdsd sdsd",
       "description": "mi descripcion kfjdfjf fjjsdjd kjsksks sksksks dksksks sksksks ksksks f df df re r ere  sdas a sa rereeref fdfdfditr iasdhydbfji isduhsduhsdhu sdmsdmdsm duuydsyuyusd ytyuwiewi dfuidsuydsh jdfsu mi descripcion kfjdfjf fjjsdjd kjsksks sksksks dksksks sksksks ksksks f df df re r ere sdas a sa rereeref fdfdfditr iasdhydbfji isduhsduhsdhu sdmsdmdsm duuydsyuyusd ytyuwiewi dfuidsuydsh jdfsu",
-      "checked": true,
+      "checked": false,
       "id": 1
     },
     {
       "title": "terminar pomodoro",
       "description": "cumplir con el pomo y la filosofia",
-      "checked": true,
+      "checked": false,
       "id": 2
-    },
-    {
-      "description": "jojojoj",
-      "title": "jola",
-      "checked": false,
-      "id": 3
-    },
-    {
-      "checked": true,
-      "id": 4
-    },
-    {
-      "description": "jhjh",
-      "title": "jhhjh",
-      "checked": false,
-      "id": 5
-    },
-    {
-      "description": "kkk",
-      "title": "kkk",
-      "checked": true,
-      "id": 6
-    },
-    {
-      "description": "ldssd\n",
-      "title": "dsds",
-      "checked": true,
-      "id": 7
-    },
-    {
-      "description": "ll",
-      "title": "ds",
-      "checked": false,
-      "id": 8
     },
     {
       "description": "kkfdf",
@@ -61,7 +27,7 @@
     {
       "description": "LKLK",
       "title": "lklkLLK",
-      "checked": false,
+      "checked": true,
       "id": 11
     },
     {
@@ -105,48 +71,6 @@
       "title": "dsds",
       "checked": false,
       "id": 18
-    },
-    {
-      "description": "kjkjk",
-      "title": "kmkk",
-      "checked": false,
-      "id": 19
-    },
-    {
-      "description": "qq",
-      "title": "hola",
-      "checked": false,
-      "id": 20
-    },
-    {
-      "description": "jdhjdjd",
-      "title": "hola",
-      "checked": false,
-      "id": 21
-    },
-    {
-      "description": "20",
-      "title": "20",
-      "checked": false,
-      "id": 22
-    },
-    {
-      "description": "mmmm",
-      "title": "23",
-      "checked": false,
-      "id": 23
-    },
-    {
-      "description": "ewewew",
-      "title": "24",
-      "checked": false,
-      "id": 24
-    },
-    {
-      "description": "jdjdjdjd",
-      "title": "nuevo nuevo",
-      "checked": false,
-      "id": 25
     }
   ]
 }

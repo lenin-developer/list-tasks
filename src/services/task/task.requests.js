@@ -29,3 +29,10 @@ export const patchCheckedTaskId = async (id, body, config) => {
 	})
 	return taksAdapter([data])
 }
+
+export const deleteTaskRequest = async (id, config) => {
+	const { data } = await toast.promise(DominioQuery.delete(`${dominioWeb.Path.task}/${id}`), {
+		...config,
+	})
+	return data
+}

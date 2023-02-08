@@ -1,4 +1,4 @@
-import { usePatchCheckedTaskId } from '@/services/task'
+import { useDeleteTask, usePatchCheckedTaskId } from '@/services/task'
 
 import classNames from 'classnames'
 import { bool, shape, string } from 'prop-types'
@@ -6,7 +6,8 @@ import { Button } from '..'
 import styles from './cardTask.module.scss'
 
 const CardTask = ({ task }) => {
-	const { mutate } = usePatchCheckedTaskId()
+	const { mutate: checketTask } = usePatchCheckedTaskId()
+	const { mutate: deleteTask } = useDeleteTask()
 
 	const cardTaskGreen = classNames({
 		[styles.cardTask_green]: task.checked,
@@ -18,7 +19,11 @@ const CardTask = ({ task }) => {
 			body: { checked: !task?.checked },
 		}
 
-		mutate(data)
+		checketTask(data)
+	}
+
+	const taskDeleteEvent = () => {
+		deleteTask(task?.id)
 	}
 
 	return (
@@ -31,12 +36,12 @@ const CardTask = ({ task }) => {
 			</section>
 			<section className={styles.sectionBtns}>
 				{task?.checked ? (
-					<Button label={'incompletar'} onClick={taskUpateFilledEvent} />
+					<Button label={'incompletar'} color='warning' onClick={taskUpateFilledEvent} />
 				) : (
-					<Button label={'Completar'} onClick={taskUpateFilledEvent} />
+					<Button label={'Completar'} color='success' onClick={taskUpateFilledEvent} />
 				)}
 				<Button label={'Editar'} />
-				<Button label={'Eliminar'} />
+				<Button label={'Eliminar'} color='danger' onClick={taskDeleteEvent} />
 			</section>
 		</div>
 	)
