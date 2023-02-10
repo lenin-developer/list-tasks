@@ -4,8 +4,8 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { v4 as uuidv4 } from 'uuid'
-import { postMsg, settignMsgGET } from './task.notify.js'
-import { deleteTaskRequest, getTask, patchCheckedTaskId, postTask } from './task.requests.js'
+import { deletetMsg, patchtMsg, postMsg, settignMsgGET } from './task.notify.js'
+import { deleteTaskRequest, getTask, patchTask, postTask } from './task.requests.js'
 
 const key = localStorage.key.task
 const id = uuidv4()
@@ -73,13 +73,13 @@ export const usePostTask = (settingMsg = postMsg, settingMutation = {}) => {
 	return { ...mutation, key }
 }
 
-export const usePatchCheckedTaskId = (settingMsg = postMsg) => {
+export const usePatchTask = (settingMsg = patchtMsg) => {
 	const queryClient = useQueryClient()
 
 	const mutation = useMutation({
 		mutationFn: async (data) => {
 			const { id, body } = data
-			return await patchCheckedTaskId(id, body, settingMsg)
+			return await patchTask(id, body, settingMsg)
 		},
 		onSuccess: () => {
 			queryClient.invalidateQueries([key])
@@ -89,7 +89,7 @@ export const usePatchCheckedTaskId = (settingMsg = postMsg) => {
 	return { ...mutation }
 }
 
-export const useDeleteTask = (settingMsg = postMsg) => {
+export const useDeleteTask = (settingMsg = deletetMsg) => {
 	const queryClient = useQueryClient()
 
 	const mutate = useMutation({

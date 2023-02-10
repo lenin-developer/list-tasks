@@ -6,12 +6,12 @@ import { ErrorBoundary } from 'react-error-boundary'
 import styles from './tasks.module.scss'
 
 const TasksPage = () => {
-	const { data: task } = useGetTasks()
+	const { data: tasks } = useGetTasks()
 
 	return (
 		<ErrorBoundary FallbackComponent={ErrorFallback} onError={setLog}>
 			<div className={styles.tasks}>
-				{task?.map((task) => (
+				{tasks?.map((task) => (
 					<CardTask key={task?.id} task={task} />
 				))}
 			</div>

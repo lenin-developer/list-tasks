@@ -1,14 +1,14 @@
 {
   "task": [
     {
-      "title": "mi titulo dfsdsd dsdsdsd sdsd ds sdsdsdsdhjsdhhsdhjs jdjhdjdjjd isuisiuis usususuus usususu usususu isisisi dsdsd sdsds sdsdsd sdsd sdsd",
+      "title": "1111",
       "description": "mi descripcion kfjdfjf fjjsdjd kjsksks sksksks dksksks sksksks ksksks f df df re r ere  sdas a sa rereeref fdfdfditr iasdhydbfji isduhsduhsdhu sdmsdmdsm duuydsyuyusd ytyuwiewi dfuidsuydsh jdfsu mi descripcion kfjdfjf fjjsdjd kjsksks sksksks dksksks sksksks ksksks f df df re r ere sdas a sa rereeref fdfdfditr iasdhydbfji isduhsduhsdhu sdmsdmdsm duuydsyuyusd ytyuwiewi dfuidsuydsh jdfsu",
-      "checked": false,
+      "checked": true,
       "id": 1
     },
     {
       "title": "terminar pomodoro",
-      "description": "cumplir con el pomo y la filosofia",
+      "description": "cumplir con el pomo y ladsdsdfilosofia  5555",
       "checked": false,
       "id": 2
     },
@@ -49,28 +49,10 @@
       "id": 14
     },
     {
-      "description": "m",
+      "description": "dsdsdsdsd",
       "title": "dsd",
       "checked": false,
       "id": 15
-    },
-    {
-      "description": "mmmm",
-      "title": "km,,m",
-      "checked": false,
-      "id": 16
-    },
-    {
-      "description": "gggg",
-      "title": "aaa",
-      "checked": false,
-      "id": 17
-    },
-    {
-      "description": "mmmmmmmmmm",
-      "title": "dsds",
-      "checked": false,
-      "id": 18
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { CardTask } from '@/components'
-import { usePatchCheckedTaskId } from '@/services/task/useTaskService'
+import { usePatchTask, useDeleteTask } from '@/services/task/useTaskService'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { fireEvent, render, screen } from '@testing-library/react'
 import styles from '../CardTask.module.scss'
@@ -13,12 +13,14 @@ jest.mock('@tanstack/react-query', () => ({
 
 jest.mock('@/services/task/useTaskService', () => ({
 	...jest.requireActual('@/services/task/useTaskService'),
-	usePatchCheckedTaskId: jest.fn(),
+	usePatchTask: jest.fn(),
+	useDeleteTask: jest.fn(),
 }))
 
 describe('CardTask: componente', () => {
 	beforeEach(() => {
-		usePatchCheckedTaskId.mockImplementation(() => ({}))
+		usePatchTask.mockImplementation(() => ({}))
+		useDeleteTask.mockImplementation(() => ({}))
 	})
 
 	afterEach(jest.clearAllMocks)
@@ -36,6 +38,18 @@ describe('CardTask: componente', () => {
 		expect(card).toHaveClass(claseCss)
 	})
 
+	it('No deberia tener la clase cardTask_green', () => {
+		const task = taskMock.task[1]
+		const claseCss = styles.cardTask_green
+		const { container } = render(
+			<QueryClientProvider client={queryClient}>
+				<CardTask task={task} />
+			</QueryClientProvider>
+		)
+		const card = container.querySelector('div')
+		expect(card).not.toHaveClass(claseCss)
+	})
+
 	it('deberia de llamar al funcion mutate de usePatchCheckedTaskId con argumetos {id:numbre, body:obje: {checked:bool}}', () => {
 		const task = taskMock?.task[0]
 		const data = {
@@ -44,7 +58,7 @@ describe('CardTask: componente', () => {
 		}
 		const mutate = jest.fn()
 
-		usePatchCheckedTaskId.mockImplementation(() => ({ mutate }))
+		usePatchTask.mockImplementation(() => ({ mutate }))
 
 		render(
 			<QueryClientProvider client={queryClient}>
@@ -57,15 +71,22 @@ describe('CardTask: componente', () => {
 		expect(mutate).toHaveBeenCalledWith(data)
 	})
 
-	it('No deberia tener la clase cardTask_green', () => {
-		const task = taskMock.task[1]
-		const claseCss = styles.cardTask_green
-		const { container } = render(
+	it('deberia de llamar a mutate de useDeleteTask con argumento id:number ', () => {
+		const task = taskMock?.task[3]
+		const data = task?.id
+		const mutate = jest.fn()
+
+		useDeleteTask.mockImplementation(() => ({ mutate }))
+
+		render(
 			<QueryClientProvider client={queryClient}>
 				<CardTask task={task} />
 			</QueryClientProvider>
 		)
-		const card = container.querySelector('div')
-		expect(card).not.toHaveClass(claseCss)
+		const btnDelete = screen.getByRole('button', { name: 'Eliminar' })
+		fireEvent.click(btnDelete)
+
+		expect(mutate).toHaveBeenCalledTimes(1)
+		expect(mutate).toHaveBeenCalledWith(data)
 	})
 })
