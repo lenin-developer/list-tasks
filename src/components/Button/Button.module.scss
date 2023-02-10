@@ -4,39 +4,17 @@
 	padding: 0.375rem;
 	font-size: 1.125rem;
 	font-weight: 600;
-	background-color: $blue-primary;
-	color: $white-color;
-	border: 0.125rem solid $blue-primary;
 	border-radius: 0.5rem;
 	cursor: pointer;
-
-	&:hover,
-	&:focus {
-		background-color: $blue-primary-hover;
-	}
-
-	&:active {
-		transform: scale($btn-scale-active);
-	}
-}
-
-.button_disabled {
-	background-color: $btn-backgrund-gray-disabled;
-	color: $btn-color-gray-disabled;
 	border: none;
-	cursor: no-drop;
 
-	// &:focus {
-	// 	outline: none;
-	// }
-
-	&:hover,
-	&:active {
-		background-color: $btn-backgrund-gray-disabled;
-		color: $btn-color-gray-disabled;
-		transform: none;
+	&:focus-visible:not(.isDisabled) {
+		box-shadow: 0 0 0 0.1875rem rgb(66 153 225 / 60%);
+		outline: 0;
 	}
 }
+
+// Size button
 
 .button_xs {
 	font-size: 0.75rem;
@@ -56,4 +34,64 @@
 .button_lg {
 	font-size: 1.125rem;
 	padding: 0.75rem 1.5rem;
+}
+
+//  button type Colors
+
+.button_primary {
+	background-color: $blue-primary;
+	color: $btn-color-white;
+
+	&:hover:not(.isDisabled) {
+		background-color: $btn-primary-bg-hover;
+	}
+
+	&:active:not(.isDisabled) {
+		transform: scale($btn-scale-active);
+	}
+}
+
+.button_success {
+	background-color: $btn-success-bg;
+	color: $btn-color-white;
+
+	&:hover:not(.isDisabled) {
+		background-color: $btn-success-hover;
+	}
+
+	&:active:not(.isDisabled) {
+		transform: scale($btn-scale-active);
+	}
+}
+
+.button_warning {
+	background-color: $btn-warning-bg;
+	color: $btn-color-white;
+
+	&:hover:not(.isDisabled) {
+		background-color: $btn-warning-bg-hover;
+	}
+
+	&:active:not(.isDisabled) {
+		transform: scale($btn-scale-active);
+	}
+}
+
+.button_danger {
+	background-color: $btn-dange-bg;
+	color: $btn-color-white;
+
+	&:hover:not(.isDisabled) {
+		background-color: $btn-dange-bg-hover;
+	}
+
+	&:active:not(.isDisabled) {
+		transform: scale($btn-scale-active);
+	}
+}
+
+.isDisabled {
+	background-color: $btn-backgrund-gray-disabled;
+	color: $btn-color-gray-disabled;
+	cursor: no-drop;
 }

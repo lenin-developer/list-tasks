@@ -1,0 +1,15 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 1.875rem;
+	padding-top: 1.25rem;
+	min-width: 23.4375rem;
+}
+
+.form__btns {
+	display: flex;
+
+	& > button {
+		flex-basis: 50%;
+	}
+}

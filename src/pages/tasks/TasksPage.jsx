@@ -12,9 +12,6 @@ const TasksPage = () => {
 		<ErrorBoundary FallbackComponent={ErrorFallback} onError={setLog}>
 			<div className={styles.tasks}>
 				{tasks?.map((task) => (
-					// <div key={task?.id}>
-					// 	<p>{task?.title}</p>
-					// </div>
 					<CardTask key={task?.id} task={task} />
 				))}
 			</div>

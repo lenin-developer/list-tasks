@@ -22,3 +22,17 @@ export const postTask = async (task, config) => {
 
 	return taksAdapter([data])
 }
+
+export const patchTask = async (id, body, config) => {
+	const { data } = await toast.promise(DominioQuery.patch(`${dominioWeb.Path.task}/${id}`, body), {
+		...config,
+	})
+	return taksAdapter([data])
+}
+
+export const deleteTaskRequest = async (id, config) => {
+	const { data } = await toast.promise(DominioQuery.delete(`${dominioWeb.Path.task}/${id}`), {
+		...config,
+	})
+	return data
+}

@@ -36,6 +36,30 @@ describe('Button: component', () => {
 	it('deberia aplicar la clase button_disabled', () => {
 		render(<Button label={label} disabled />)
 		const btn = screen.getByRole('button')
-		expect(btn).toHaveClass(styles.button_disabled)
+		expect(btn).toHaveClass(styles.isDisabled)
+	})
+
+	it('deberia aplicar la clase por defecto button_primary', () => {
+		render(<Button />)
+		const btn = screen.getByRole('button')
+		expect(btn).toHaveClass(styles.button_primary)
+	})
+
+	it('deberia aplicar la clase button_success', () => {
+		render(<Button color='success' />)
+		const btn = screen.getByRole('button')
+		expect(btn).toHaveClass(styles.button_success)
+	})
+
+	it('deberia aplicar la clase button_warning', () => {
+		render(<Button color='warning' />)
+		const btn = screen.getByRole('button')
+		expect(btn).toHaveClass(styles.button_warning)
+	})
+
+	it('deberia aplicar la clase button_warning', () => {
+		render(<Button color='danger' />)
+		const btn = screen.getByRole('button')
+		expect(btn).toHaveClass(styles.button_danger)
 	})
 })

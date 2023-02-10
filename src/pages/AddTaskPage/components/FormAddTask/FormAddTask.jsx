@@ -35,7 +35,7 @@ export const FormAddTask = () => {
 				placeholder='descripcion de la tarea'
 				aria-label='descripcion de la tarea'
 				{...register('description')}
-				error={errors.descripction}
+				error={errors.description}
 			/>
 			<Button label='Agregar' type='submit' size='lg' disabled={!isValid || isLoading} />
 		</form>

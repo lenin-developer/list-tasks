@@ -7,6 +7,7 @@ import { codeMatcherError } from '@/utils/errorHandling'
 // aqui solo guardamos un token en la cahe solo para poder simular
 saveInLocalStorage(localStorage.key.token, '123456')
 
+// seria mejor por ejemplo santanderAxios en ves de santanderQuery
 export const DominioQuery = axios.create({
 	baseURL: dominioWeb.root,
 	responseType: 'json',
@@ -15,9 +16,9 @@ export const DominioQuery = axios.create({
 const updateHeader = (request) => {
 	const token = getInLocalStorage(localStorage.key.token)
 	const newHeaders = {
+		Authorization: token,
 		'Content-Type': 'application/json',
 		...request.headers,
-		Authorization: token,
 	}
 	request.headers = newHeaders
 	return request

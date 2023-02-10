@@ -1,17 +1,13 @@
 @use '@/styles' as *;
 
 .cardTask {
-	margin-bottom: 1.25rem;
+	margin-bottom: 2.5rem;
 	max-width: 43.75rem;
-	border: 1px solid $btn-backgrund-gray-disabled;
+	border: 0.1875rem solid $btn-backgrund-gray-disabled;
 	border-radius: 0.3125rem;
 }
 
-.cardTask_green {
-	border: 1px solid $btn-backgrund-gray-disabled;
-}
-
-.cardTask__title {
+.header {
 	display: flex;
 	align-items: center;
 	height: 2.5rem;
@@ -19,14 +15,22 @@
 
 	// border: 0.125rem solid $btn-backgrund-gray-disabled;
 	border-radius: 0.125rem;
+}
 
-	& h3 {
-		text-overflow: ellipsis;
-		overflow: hidden;
-		white-space: nowrap;
-		color: $btn-color-gray-disabled;
-		padding-left: 0.3125rem;
+.cardTask_green {
+	border-color: $card-title-cheked-true;
+
+	& .header {
+		background-color: $card-title-cheked-true;
 	}
+}
+
+.header__title {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	color: $btn-color-gray-disabled;
+	padding-left: 0.3125rem;
 }
 
 .description {

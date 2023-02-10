@@ -4,18 +4,17 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useEffect } from 'react'
 import { toast } from 'react-toastify'
 import { v4 as uuidv4 } from 'uuid'
-import { postMsg, settignMsgGET } from './task.notify.js'
-import { getTask, postTask } from './task.requests.js'
+import { deletetMsg, patchtMsg, postMsg, settignMsgGET } from './task.notify.js'
+import { deleteTaskRequest, getTask, patchTask, postTask } from './task.requests.js'
 
 const key = localStorage.key.task
 const id = uuidv4()
 
 export const useGetTasks = (autoCall = true, settingMsg = {}, settignQuery = {}) => {
 	const toastId = id
-	const toastIdSuccess = `${toastId}-Success`
 	const toastIdError = `${toastId}-error`
 	const controller = new AbortController()
-	const { loadign, success, error } = settignMsgGET(settingMsg)
+	const { loadign, error } = settignMsgGET(settingMsg)
 
 	const queryprops = useQuery({
 		queryKey: [key],
@@ -25,9 +24,9 @@ export const useGetTasks = (autoCall = true, settingMsg = {}, settignQuery = {})
 		},
 		enabled: autoCall,
 
-		onSuccess: () => {
+		onSuccess: (data) => {
 			loadign?.active && toast.dismiss(toastId)
-			success?.active && toast.success(success.msg, { toastId: toastIdSuccess })
+			// success?.active && toast.success(success.msg, { toastId: toastIdSuccess })
 		},
 		onError: () => {
 			loadign?.active && toast.dismiss(toastId)
@@ -65,11 +64,41 @@ export const usePostTask = (settingMsg = postMsg, settingMutation = {}) => {
 		mutationFn: (body) => {
 			postTask(body, settingMsg)
 		},
-		onSuccess: (task) => {
-			queryClient.setQueryData([key], (prevTasks) => prevTasks?.concat(task))
+		onSuccess: () => {
+			queryClient.invalidateQueries([key])
 		},
 		...settingMutation,
 	})
 
 	return { ...mutation, key }
+}
+
+export const usePatchTask = (settingMsg = patchtMsg) => {
+	const queryClient = useQueryClient()
+
+	const mutation = useMutation({
+		mutationFn: async (data) => {
+			const { id, body } = data
+			return await patchTask(id, body, settingMsg)
+		},
+		onSuccess: () => {
+			queryClient.invalidateQueries([key])
+		},
+	})
+
+	return { ...mutation }
+}
+
+export const useDeleteTask = (settingMsg = deletetMsg) => {
+	const queryClient = useQueryClient()
+
+	const mutate = useMutation({
+		mutationFn: async (id) => {
+			return await deleteTaskRequest(id, settingMsg)
+		},
+		onSuccess: () => {
+			queryClient.invalidateQueries([key])
+		},
+	})
+	return { ...mutate }
 }

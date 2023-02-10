@@ -20,7 +20,7 @@
 .item a {
 	width: 100%;
 	text-decoration: none;
-	color: $white-color;
+	color: $btn-color-white;
 	display: flex;
 	align-items: center;
 	height: 3.75rem;
@@ -48,16 +48,16 @@
 
 .item__icon path {
 	border-radius: 50%;
-	stroke: $white-color;
+	stroke: $btn-color-white;
 }
 
 /* .item:hover {
-	background-color: $white-color;
+	background-color: $btn-color-white;
 } */
 
 .active.item,
 .item:focus-within {
-	background-color: $white-color;
+	background-color: $btn-color-white;
 }
 
 /* .item:hover a {
@@ -86,7 +86,7 @@
 
 	background-color: #f00;
 	border-bottom-right-radius: 20px;
-	box-shadow: 7.5px 7.5px 0 3px $white-color;
+	box-shadow: 7.5px 7.5px 0 3px $btn-color-white;
 } */
 
 .active.item::before,
@@ -100,7 +100,7 @@
 
 	/* background-color: #f00; */
 	border-bottom-right-radius: 1.25em;
-	box-shadow: 0.4688rem 0.4688rem 0 0.1875rem $white-color;
+	box-shadow: 0.4688rem 0.4688rem 0 0.1875rem $btn-color-white;
 }
 
 /* .item:hover::after {
@@ -113,7 +113,7 @@
 
 	background-color: #f00;
 	border-top-right-radius: 20px;
-	box-shadow: 7.5px -7.5px 0 3px $white-color;
+	box-shadow: 7.5px -7.5px 0 3px $btn-color-white;
 } */
 
 .active.item::after {
@@ -126,5 +126,5 @@
 
 	/* background-color: #f00; */
 	border-top-right-radius: 1.25em;
-	box-shadow: 0.4688em -0.4688em 0 0.1875em $white-color;
+	box-shadow: 0.4688em -0.4688em 0 0.1875em $btn-color-white;
 }
