@@ -84,6 +84,7 @@ describe('CardTask: componente', () => {
 			</QueryClientProvider>
 		)
 		const btnDelete = screen.getByRole('button', { name: 'Eliminar' })
+
 		fireEvent.click(btnDelete)
 
 		expect(mutate).toHaveBeenCalledTimes(1)

@@ -8,7 +8,7 @@ import App from './App'
 import { toasTifyConfig } from '@/configs/ui'
 
 import 'react-toastify/dist/ReactToastify.min.css'
-import './styles/normalize.css'
+import './styles/normalize.scss'
 
 const queryClient = new QueryClient()
 

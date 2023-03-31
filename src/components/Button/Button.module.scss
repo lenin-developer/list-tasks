@@ -9,7 +9,7 @@
 	border: none;
 
 	&:focus-visible:not(.isDisabled) {
-		box-shadow: 0 0 0 0.1875rem rgb(66 153 225 / 60%);
+		box-shadow: 0 0 0 0.1875rem #4299e199;
 		outline: 0;
 	}
 }

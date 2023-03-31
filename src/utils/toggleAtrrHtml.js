@@ -12,6 +12,19 @@ export const toggleCss = (refElement, className) => {
 	}
 }
 
+export const transitonAndEvent = (refElement, className, collback, delaySm, classNameErro) => {
+	try {
+		refElement.current.classList.toggle(`${className}`)
+
+		setTimeout(() => {
+			collback()
+		}, delaySm)
+	} catch (error) {
+		// eslint-disable-next-line no-console
+		console.error('erro in the function toggleCss', error)
+	}
+}
+
 /**
  * It toggles the value of a property of a ref object between two values
  * @param {object} ref - the ref object html (useRef)

@@ -5,6 +5,10 @@
 	max-width: 43.75rem;
 	border: 0.1875rem solid $btn-backgrund-gray-disabled;
 	border-radius: 0.3125rem;
+	overflow: hidden;
+	opacity: 1;
+	width: 100%;
+	transition: opacity 400ms, transform 400ms;
 }
 
 .header {
@@ -15,6 +19,7 @@
 
 	// border: 0.125rem solid $btn-backgrund-gray-disabled;
 	border-radius: 0.125rem;
+	transition: background-color 0.4s;
 }
 
 .cardTask_green {
@@ -52,4 +57,29 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	align-content: space-evenly;
+}
+
+// .animacion {
+// 	opacity: 0;
+// 	transform: translateX(100%);
+// }
+
+// .enter {
+// 	opacity: 0;
+// 	transform: translateX(100%);
+// }
+
+// .enterActive {
+// 	opacity: 1;
+// 	transform: translateX(0);
+// 	transition: opacity 8000ms ease-in-out, transform 8000ms ease-in-out;
+// }
+
+// .exit {
+// 	background-color: red;
+// }
+
+.exitActive {
+	opacity: 0;
+	transform: translateX(100%);
 }
